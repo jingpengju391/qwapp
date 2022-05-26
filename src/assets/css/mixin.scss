@@ -1,0 +1,201 @@
+//flex 布局
+@mixin display-flex() {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+}
+//flex 纵向布局
+@mixin flex-direction-column() {
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+//定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+//flex $g方向布局
+@mixin flex-direction($g){
+  -webkit-box-orient: $g;
+  -ms-flex-direction: $g;
+  -webkit-flex-direction: $g;
+  flex-direction: $g;
+}
+//flex 两端对其
+@mixin justify-content_flex-justify(){
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+//flex 水平居中
+@mixin justify-content(){
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+  box-pack:center;
+}
+@mixin justify-content-v($v){
+  -webkit-justify-content:$v;
+  justify-content:$v;
+  -moz-box-pack:$v;
+  -webkit--moz-box-pack:$v;
+  box-pack:$v;
+}
+//flex 占比
+@mixin flex($f) {
+  -webkit-flex: $f;
+  -ms-flex: $f;
+  flex: $f;
+  -webkit-box-flex: $f;
+  -moz-box-flex: $f;
+}
+//flex 纵轴方向
+@mixin align-items($h){
+  align-items:$h;
+  -webkit-align-items:$h;
+  box-align:$h;
+  -moz-box-align:$h;
+  -webkit-box-align:$h;
+}
+
+//transform 旋转角度
+@mixin transform-rotate($deg){
+  transform: rotate($deg);
+ -webkit-transform: rotate($deg);
+ -moz-transform: rotate($deg);
+ -o-transform: rotate($deg);
+ -ms-transform: rotate($deg);
+}
+
+//transform 旋转角度
+@mixin transform-rotateY($deg){
+  transform: rotateY($deg);
+ -webkit-transform: rotateY($deg);
+ -moz-transform: rotateY($deg);
+ -o-transform: rotateY($deg);
+ -ms-transform: rotateY($deg);
+}
+
+//旋转
+@mixin transform($reg) {
+  -webkit-transform: skew($reg);
+  -moz-transform: skew($reg);
+  -ms-transform: skew($reg);
+  -o-transform: skew($reg);
+  transform: skew($reg);
+}
+
+//position 居中
+@mixin positionCenter(){
+  position: absolute;
+  right:0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+//position 水平居中
+@mixin justifyCenter(){
+  position: absolute;
+  right:0;
+  left: 0;
+  margin: 0 auto;
+}
+
+//position 垂直居中
+@mixin alignCenter(){
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+}
+//position $f动画
+@mixin transition($f){
+  transition: $f;
+  -ms-transition: $f; /* IE 9 */
+  -moz-transition: $f; /* Firefox */
+  -webkit-transition: $f; /* Safari 和 Chrome */
+  -o-transition: $f; /* Opera */
+}
+
+//position 透明度
+@mixin opacity($e){
+  -moz-opacity:$e;              /* 老版Mozilla */
+  opacity: $e;           /* 支持opacity的浏览器*/
+}
+
+//position 缩放
+@mixin transformScale($e){
+ -webkit-transform: scale($e);
+ -moz-transform: scale($e);
+ -ms-transform: scale($e);
+ -o-transform: scale($e);
+ transform: scale($e);        /* 支持opacity的浏览器*/
+}
+
+//position 缩放
+@mixin animation($n ,$l ,$t){
+  animation: $n $l $t;
+  -moz-animation: $n $l $t;
+  -webkit-animation: $n $l $t;
+  -o-animation: $n $l $t;     /* 支持opacity的浏览器*/
+}
+
+//position 等待
+@mixin animationDelay($t){
+ animation-delay:$t;
+ -webkit-animation-delay:$t; /* Safari 和 Chrome */
+}
+
+//position 维持动画
+@mixin animationMode($f){
+  -webkit-animation-fill-mode: $f;
+  animation-fill-mode: $f;
+}
+
+
+//阴影
+@mixin boxShadow($i ,$q ,$w , $e, $c){
+  -webkit-box-shadow:$i $q $w $e $c;
+  -moz-box-shadow:$i $q $w $e $c;
+  box-shadow:$i $q $w $e $c;
+}
+
+//阴影
+@mixin boxShadows($q ,$w , $e, $c, $o){
+  -moz-box-shadow:$q $w $e $c $o;
+  -webkit-box-shadow:$q $w $e $c $o;
+  box-shadow:$q $w $e $c $o;
+}
+// keyframes动画
+  @mixin keyframes($keyname) {
+    @-webkit-keyframes #{$keyname} {
+      @content;
+    }
+    @-moz-keyframes #{$keyname} {
+      @content;
+    }
+    @keyframes #{$keyname} {
+      @content;
+    }
+  }
+
+//  keyframes动画规则
+@mixin animation($keyname,$keyeff,$keytime,$keyinf,$keydelay,$keymode) {
+animation:$keyname $keyeff $keytime $keyinf;
+-moz-animation:$keyname $keyeff $keytime $keyinf;
+-webkit-animation:$keyname $keyeff $keytime $keyinf;
+-o-animation:$keyname $keyeff $keytime $keyinf;
+animation-delay:$keydelay;
+-webkit-animation-delay:$keydelay;
+-webkit-animation-fill-mode: $keymode;
+animation-fill-mode :$keymode;
+}
